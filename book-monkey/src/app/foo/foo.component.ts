@@ -7,7 +7,13 @@ import { Component } from '@angular/core';
 })
 export class FooComponent {
   foo: string = 'Angular';
+  myData:object={
+    titles:'s',
+    name:'name'
+
+  }
   bar: number;
+  date:Date=new Date()
   names: string[] = ['Mehdi', 'yasamin', 'shuli'];
   myUrl = 'www.Google.de';
   title: string = '';
@@ -16,5 +22,9 @@ export class FooComponent {
   }
   myClickHandler() {
     return (this.foo = this.foo + '2');
+  }
+  useTheInput(){
+    const randomValue: number = Math.floor(Math.random()* 3)+1;
+   this.names[1]=this.names[randomValue];
   }
 }
