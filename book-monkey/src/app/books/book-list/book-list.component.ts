@@ -1,5 +1,12 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
-import { Book } from '../shared/book';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { Book } from '../../shared/book';
 
 @Component({
   selector: 'bm-book-list',
@@ -8,6 +15,8 @@ import { Book } from '../shared/book';
 })
 export class BookListComponent implements OnInit, OnChanges {
   public books: Book[] = [];
+  @Output() selectBook = new EventEmitter<Book>();
+
   @Input() foo?: string;
   constructor() {
     this.books = [
@@ -31,6 +40,10 @@ export class BookListComponent implements OnInit, OnChanges {
       },
     ];
   }
+  doSelect(book: Book) {
+    this.selectBook.emit(book);
+  }
+
   ngOnChanges(): void {
     this.foo = 'ngOnChanges';
     console.log('');
