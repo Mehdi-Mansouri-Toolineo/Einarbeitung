@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
@@ -6,8 +6,9 @@ import { Book } from '../shared/book';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css'],
 })
-export class BookListComponent {
-  books: Book[] = [];
+export class BookListComponent implements OnInit, OnChanges {
+  public books: Book[] = [];
+  @Input() foo?: string;
   constructor() {
     this.books = [
       {
@@ -29,5 +30,14 @@ export class BookListComponent {
         description: 'Tolle Backtipps für Mensch und Tier',
       },
     ];
+  }
+  ngOnChanges(): void {
+    this.foo = 'ngOnChanges';
+    console.log('');
+  }
+
+  ngOnInit(): void {
+    this.foo = 'Hello';
+    console.log('');
   }
 }
