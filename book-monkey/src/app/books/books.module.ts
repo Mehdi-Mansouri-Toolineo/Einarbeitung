@@ -11,6 +11,5 @@ import { CommonModule } from '@angular/common';
     BookDetailsComponent,
   ],
   imports: [CommonModule, BooksRoutingModule],
-  exports: [BookListComponent, BookDetailsComponent],
 })
 export class BooksModule {}
