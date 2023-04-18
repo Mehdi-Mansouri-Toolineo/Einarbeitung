@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Book } from '../../shared/book';
 import { BookStoreService } from 'src/app/shared/book-store.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bm-book-list',
@@ -8,12 +9,8 @@ import { BookStoreService } from 'src/app/shared/book-store.service';
   styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent {
-  books: Book[] = [];
-  @Output() selectBook = new EventEmitter<Book>();
+  books$: Observable<Book[]>;
   constructor(private service: BookStoreService) {
-    this.books = this.service.getAll();
-  }
-  doSelect(book: Book) {
-    this.selectBook.emit(book);
+    this.books$ = this.service.getAll();
   }
 }
