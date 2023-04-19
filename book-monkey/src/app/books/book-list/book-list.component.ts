@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Book } from '../../shared/book';
 import { BookStoreService } from 'src/app/shared/book-store.service';
 import { Observable } from 'rxjs';
