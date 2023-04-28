@@ -1,0 +1,19 @@
+<p>
+  foo works!
+  <br />
+  {{ foo }}
+  <br />
+  {{ bar + 1 }}
+  <a [href]="myUrl">My Link</a>
+  <button (click)="myClickHandler()">Click me</button>
+</p>
+<ul>
+  <li *ngFor="let name of names; first as first; last as last">
+    <span *ngIf="last">last=></span>
+    <span *ngIf="first">first=></span>
+    {{ name }}
+  </li>
+</ul>
+<p>{{ date | date | uppercase }}</p>
+<input #myInput type="text" value="{{ names[1] }}" />
+<button (click)="useTheInput()">{{ names[1] }}</button>
